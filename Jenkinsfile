@@ -4,12 +4,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                echo 'Checking out the code...'
                 git 'https://github.com/Tiagooo90/BoxingGearReviewAPI.git'
             }
         }
         
         stage('Restore Dependencies') {
             steps {
+                echo 'Restoring dependencies...'
                 sh 'dotnet restore'
             }
         }
