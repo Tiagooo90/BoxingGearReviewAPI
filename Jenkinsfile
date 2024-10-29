@@ -12,25 +12,25 @@ pipeline {
         stage('Restore Dependencies') {
             steps {
                 echo 'Restoring dependencies...'
-                bat  'dotnet restore'
+                bat 'dotnet restore'
             }
         }
 
         stage('Build') {
             steps {
-                bat  'dotnet build --configuration Release'
+                bat 'dotnet build --configuration Release'
             }
         }
         
         stage('Run Tests') {
             steps {
-                bat  'dotnet test'
+                bat 'dotnet test'
             }
         }
         
         stage('Publish') {
             steps {
-                bat  'dotnet publish --configuration Release --output ./publish'
+                bat 'dotnet publish --configuration Release --output ./publish'
             }
         }
 
@@ -40,4 +40,9 @@ pipeline {
             }
         }
     }
+
+    environment {
+        DOTNET_ROOT = 'C:\\Program Files\\dotnet' // Ajuste o caminho se necessário
+    }
 }
+
